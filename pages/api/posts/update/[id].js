@@ -1,16 +1,6 @@
 import db from '../../../../libs/db';
 
 export default async function handler(req, res) {
-    // if (req.method !== 'PUT') return res.status(405).end();
-
-    // // console.log(req.query);
-    // // console.log(req.body);
-
-    // const { id } = req.query;
-    // const { a, b } = req.body;
-    // console.log(a)
-
-
     if (req.method !== 'PUT') return res.status(405).end();
 
     const { id } = req.query;
