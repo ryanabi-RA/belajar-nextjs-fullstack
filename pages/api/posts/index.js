@@ -6,8 +6,6 @@ export default async function handler(req, res) {
 
     const auth = await authorization(req, res);
 
-    console.log(auth);
-
     const posts = await db('posts');
 
     res.status(200);
