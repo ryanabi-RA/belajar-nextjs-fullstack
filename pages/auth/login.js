@@ -80,12 +80,12 @@ export default function Login() {
                             type="password"
                             onChange={fieldHandler.bind(this)}
                             placeholder="Password"
-                            className="p-2 w-64 rounded-lg bg-transparent border-2  border-gray-300 dark:border-gray-700"
+                            className="p-2 w-64 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700"
                             required
                         />
                         <button
                             type="submit"
-                            className="m-auto py-1 px-10 bg-blue-500 dark:bg-blue-800 hover:bg-transparent active:bg-blue-500 active:rounded-2xl rounded-2xl text-lg text-white border-2 border-blue-300 dark:border-blue-700 hover:border-blue-500 font-medium overflow-hidden"
+                            className="m-auto py-1 px-10 bg-blue-500 dark:bg-blue-800 hover:bg-transparent active:bg-blue-500 active:rounded-2xl rounded-2xl text-lg text-white hover:text-blue-500 border-2 border-blue-500 dark:border-blue-700 hover:border-blue-500 font-medium overflow-hidden"
                         >
                             Login
                         </button>
