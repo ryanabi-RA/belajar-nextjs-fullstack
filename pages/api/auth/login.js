@@ -1,30 +1,34 @@
-import db from"../../../libs/db";
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import db from '../../../libs/db'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export default async function handler(req, res) {
-    if(req.method !== 'POST') return res.status(405).end();
+    if (req.method !== 'POST') return res.status(405).end()
 
-    const { email, password } = req.body;
+    const { email, password } = req.body
 
-    const checkUser = await db('users').where({ email }).first();
+    const checkUser = await db('users').where({ email }).first()
 
-    if(!checkUser) return res.status(401).end();
+    if (!checkUser) return res.status(401).end()
 
-    const checkPassword = await bcrypt.compare(password, checkUser.password);
+    const checkPassword = await bcrypt.compare(password, checkUser.password)
 
-    if(!checkPassword) return res.status(401).end();
+    if (!checkPassword) return res.status(401).end()
 
-    const token = jwt.sign({
-        id: checkUser.id,
-        email: checkUser.email
-    }, 'tokenSecret', {
-        expiresIn: '7d'
-    });
+    const token = jwt.sign(
+        {
+            id: checkUser.id,
+            email: checkUser.email,
+        },
+        'tokenSecret',
+        {
+            expiresIn: '7d',
+        }
+    )
 
-    res.status(200);
+    res.status(200)
     res.json({
         massage: 'Login Successfully',
-        token
-    });
+        token,
+    })
 }

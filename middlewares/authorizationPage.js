@@ -1,29 +1,33 @@
-import cookies from 'next-cookies';
+import cookies from 'next-cookies'
 
 export function unAuthPage(ctx) {
-    return new Promise(resolve => {
-        const allCookies = cookies(ctx);
+    return new Promise((resolve) => {
+        const allCookies = cookies(ctx)
 
         if (allCookies.token)
-            return ctx.res.writeHead(302, {
-                Location: '/posts'
-            }).end();
+            return ctx.res
+                .writeHead(302, {
+                    Location: '/posts',
+                })
+                .end()
 
-        return resolve('unAuthorized');
-    });
+        return resolve('unAuthorized')
+    })
 }
 
 export function authPage(ctx) {
-    return new Promise(resolve => {
-        const allCookies = cookies(ctx);
+    return new Promise((resolve) => {
+        const allCookies = cookies(ctx)
 
         if (!allCookies.token)
-            return ctx.res.writeHead(302, {
-                Location: '/auth/login'
-            }).end();
+            return ctx.res
+                .writeHead(302, {
+                    Location: '/auth/login',
+                })
+                .end()
 
         return resolve({
-            token: allCookies.token
-        });
-    });
+            token: allCookies.token,
+        })
+    })
 }
