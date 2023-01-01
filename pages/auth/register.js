@@ -23,9 +23,6 @@ export default function Register() {
         if (!fields.email || !fields.password)
             return setStatus('masukkan email & password')
 
-        // if (fields.email === )
-        // return console.log()
-
         const registerReq = await fetch('/api/auth/register', {
             method: 'POST',
             body: JSON.stringify(fields),
@@ -39,7 +36,6 @@ export default function Register() {
         const registerRes = await registerReq.json()
 
         setStatus('create account success')
-        // console.log(registerRes);
     }
 
     function fieldHandler(e) {
