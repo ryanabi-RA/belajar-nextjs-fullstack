@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Modal from '../../components/modal/modal'
 import { authPage } from '../../middlewares/authorizationPage'
 
 export async function getServerSideProps(ctx) {
@@ -22,12 +24,28 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function PostIndex(props) {
+    const [show, setShow] = useState(false)
+
     return (
-        <div className="w-full h-screen">
-            <h1 className="m-4 text-4xl">Posts Page</h1>
-            {props.posts.map((post) => (
-                <p key={post.id}>{post.title}</p>
-            ))}
+        <div className="h-screen w-full">
+            <h1 className="text-4xl">Posts Page</h1>
+            <button
+                className="m-4 rounded-lg border-2 border-blue-500 px-4 py-1 hover:bg-blue-500 active:bg-gray-300"
+                onClick={() => setShow(true)}
+            >
+                Add new
+            </button>
+            <Modal onClose={() => setShow(false)} show={show} />
+            <div className="boder-white mx-4 rounded-lg border p-2">
+                {props.posts.map((post) => (
+                    <p
+                        key={post.id}
+                        className="my-2 rounded-md bg-gray-800 p-2"
+                    >
+                        {post.title}
+                    </p>
+                ))}
+            </div>
         </div>
     )
 }

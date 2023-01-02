@@ -47,18 +47,18 @@ export default function Register() {
     }
 
     return (
-        <div className="w-full h-screen flex justify-center items-center dark:bg-black">
+        <div className="flex h-screen w-full items-center justify-center dark:bg-black">
             <div className="relative">
-                <div className="w-full h-full bg-blue-100 dark:bg-blue-900 rounded-2xl blur-sm absolute"></div>
-                <div className="m-[6px] px-8 pb-10 border-2 border-blue-300 dark:border-blue-500 bg-white dark:bg-black rounded-xl flex flex-col justify-center items-center relative">
-                    <h1 className="my-14 text-4xl dark:text-gray-300 font-bold">
+                <div className="absolute h-full w-full rounded-2xl bg-blue-100 blur-sm dark:bg-blue-900"></div>
+                <div className="relative m-[6px] flex flex-col items-center justify-center rounded-xl border-2 border-blue-300 bg-white px-8 pb-10 dark:border-blue-500 dark:bg-black">
+                    <h1 className="my-14 text-4xl font-bold dark:text-gray-300">
                         Register
                     </h1>
                     <form
-                        className="flex flex-col space-y-5 items-center"
+                        className="flex flex-col items-center space-y-5"
                         onSubmit={registerHandler.bind(this)}
                     >
-                        <div className="text-base text-emerald-500 font-medium">
+                        <div className="text-base font-medium text-emerald-500">
                             {status}
                         </div>
                         <input
@@ -66,7 +66,7 @@ export default function Register() {
                             type="text"
                             onChange={fieldHandler.bind(this)}
                             placeholder="Email"
-                            className="p-2 w-64 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700"
+                            className="w-64 rounded-lg border-2 border-gray-300 bg-transparent p-2 dark:border-gray-700"
                             required
                         />
                         <input
@@ -74,12 +74,12 @@ export default function Register() {
                             type="password"
                             onChange={fieldHandler.bind(this)}
                             placeholder="Password"
-                            className="p-2 w-64 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700"
+                            className="w-64 rounded-lg border-2 border-gray-300 bg-transparent p-2 dark:border-gray-700"
                             required
                         />
                         <button
                             type="submit"
-                            className="m-auto py-1 px-10 bg-blue-500 dark:bg-blue-800 hover:bg-transparent active:bg-blue-500 active:rounded-2xl rounded-2xl text-lg text-white hover:text-blue-500 border-2 border-blue-500 dark:border-blue-700 hover:border-blue-500 font-medium overflow-hidden"
+                            className="m-auto overflow-hidden rounded-2xl border-2 border-blue-500 bg-blue-500 py-1 px-10 text-lg font-medium text-white hover:border-blue-500 hover:bg-transparent hover:text-blue-500 active:rounded-2xl active:bg-blue-500 dark:border-blue-700 dark:bg-blue-800"
                         >
                             Register
                         </button>
