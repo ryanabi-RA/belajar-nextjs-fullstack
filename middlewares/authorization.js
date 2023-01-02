@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken'
 export default function authorization(req, res) {
     return new Promise((resolve, reject) => {
         const { authorization } = req.headers
-
+        // console.log(authorization)
+        // if (!authorization) return console.log('true null')
         if (!authorization) return res.status(401).end()
 
         const authSplit = authorization.split(' ')
