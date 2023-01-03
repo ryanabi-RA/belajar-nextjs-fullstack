@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import Modal from '../../components/modal/modal'
 import { authPage } from '../../middlewares/authorizationPage'
+import Modal from '../../components/modal/modal'
+import Router from 'next/router'
 
 export async function getServerSideProps(ctx) {
     const { token } = await authPage(ctx)
@@ -14,7 +15,6 @@ export async function getServerSideProps(ctx) {
     })
 
     const posts = await postReq.json()
-    // console.log(posts);
 
     return {
         props: {
@@ -26,6 +26,7 @@ export async function getServerSideProps(ctx) {
 
 export default function PostIndex(props) {
     const [show, setShow] = useState(false)
+    const [posts, setPosts] = useState(props.posts)
     const { token } = props
 
     async function deleteHandler(id, e) {
@@ -43,8 +44,16 @@ export default function PostIndex(props) {
 
             const res = await deletePost.json()
 
-            console.log(res)
+            const postFiltered = posts.filter((post) => {
+                return post.id !== id && post
+            })
+
+            setPosts(postFiltered)
         }
+    }
+
+    function editHandler(id) {
+        Router.push('/posts/edit/' + id)
     }
 
     return (
@@ -58,7 +67,7 @@ export default function PostIndex(props) {
             </button>
             <Modal onClose={() => setShow(false)} show={show} token={token} />
             <div className="rounded-lg border-2 border-gray-200 p-2">
-                {props.posts.map((post) => (
+                {posts.map((post) => (
                     <div
                         key={post.id}
                         className="my-2 flex items-center justify-between rounded-md bg-gray-200 p-2 dark:bg-gray-800"
@@ -70,7 +79,10 @@ export default function PostIndex(props) {
                             <p>{post.content}</p>
                         </div>
                         <div className="">
-                            <button className="mx-2 rounded-lg border-2 border-yellow-500 bg-yellow-500 py-1 px-3 text-white hover:bg-transparent hover:text-yellow-500 active:bg-gray-500">
+                            <button
+                                onClick={editHandler.bind(this, post.id)}
+                                className="mx-2 rounded-lg border-2 border-yellow-500 bg-yellow-500 py-1 px-3 text-white hover:bg-transparent hover:text-yellow-500 active:bg-gray-500"
+                            >
                                 Edit
                             </button>
                             <button
