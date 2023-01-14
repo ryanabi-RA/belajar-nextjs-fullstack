@@ -36,8 +36,8 @@ http://localhost:3000
 
 ## Screenshots
 
-![Simple app](.screenshots/login%20page.png "Home Page")
-![Simple app](.screenshots/dashboard posts.png "Home Page")
-![Simple app](.screenshots/edit post.png "Home Page")
-![Simple app](.screenshots/tampilan%20json%20-%20dengan%20metode%20Get%20posts%20.png "Home Page")
-![Simple app](.screenshots/update%20data%20with%20api.png "Home Page")
+![Simple app](./screenshots/login%20page.png "Home Page")
+![Simple app](./screenshots/dashboard%20posts.png "Dashboard Page")
+![Simple app](./screenshots/edit%20post.png "Edit Page")
+![Simple app](./screenshots/tampilan%20json%20-%20dengan%20metode%20Get%20posts%20.png "Api get posts")
+![Simple app](./screenshots/update%20data%20with%20api.png "Api update post")
