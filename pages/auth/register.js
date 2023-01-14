@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 import { unAuthPage } from '../../middlewares/authorizationPage'
 
@@ -84,6 +85,13 @@ export default function Register() {
                             Register
                         </button>
                     </form>
+
+                    <Link
+                        href="/auth/login"
+                        className="right-0 bottom-0 mt-3 text-blue-500"
+                    >
+                        login account
+                    </Link>
                 </div>
             </div>
         </div>
