@@ -2,7 +2,8 @@
 
 ### Resources
 -  Next Js
--  Supabase
+-  SQL
+-  Knex
 
 ### impelentasi
 - Create Read Update Delete (CRUD)
