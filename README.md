@@ -5,8 +5,9 @@
 -  Supabase
 
 ### impelentasi
-- CRUD
+- Create Read Update Delete (CRUD)
 - Rest Api
+- JSON Web Token (JWT)
 - Login & register account
 
 ### How to run in localhost
