@@ -14,7 +14,7 @@
 
 1. clone project in directoy pc
 ```
-git clone https://github.com/ryanabi-RA/simple-crud-nextjs.git
+git clone https://github.com/ryanabi-RA/simple-app-with-rest-api.git
 ```
 2. install dependencies
 ```
