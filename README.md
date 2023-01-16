@@ -1,4 +1,4 @@
-# Project simple crud
+# Project simple web app dengan Rest API
 
 ### Resources
 -  Next Js
